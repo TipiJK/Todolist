@@ -14,6 +14,7 @@ function App() {
     setTodos([...todos, todo]);
   }
 
+
   return (
     <div className="App">
       <div className="App-header">Simple Todolist</div>
@@ -34,6 +35,7 @@ function App() {
             <tr key={index}>
               <td>{todo.date}</td>
               <td>{todo.desc}</td>
+              <td><button value={index} onClick={() => {setTodos(todos.filter((todo, i) => i !== index))}} >Delete</button></td>
             </tr>
           )}
         </tbody>
