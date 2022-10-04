@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
+import TodoTable from './components/TodoTable';
 
 function App() {
   const [todo, setTodo] = useState({desc: '', date: ''});
@@ -14,6 +15,10 @@ function App() {
     setTodos([...todos, todo]);
   }
 
+  const deleteTodo = (index) => {
+    setTodos(todos.filter((todo, i) => i !== index));
+  }
+
 
   return (
     <div className="App">
@@ -23,23 +28,7 @@ function App() {
         Description: <input type="text" name="desc" value={todo.desc} onChange={inputChanged} />
         <input type="submit" value="Add" />
       </form>
-      <table>
-        <thead>
-          <tr>
-            <td>Date</td>
-            <td>Description</td>
-          </tr>
-        </thead>
-        <tbody>
-          {todos.map((todo, index) => 
-            <tr key={index}>
-              <td>{todo.date}</td>
-              <td>{todo.desc}</td>
-              <td><button value={index} onClick={() => {setTodos(todos.filter((todo, i) => i !== index))}} >Delete</button></td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+      <TodoTable todoprop={todos} functionprop={deleteTodo} />
     </div>
   );
 }
