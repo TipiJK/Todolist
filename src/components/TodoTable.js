@@ -11,11 +11,11 @@ export default function TodoTable(props) {
                 </tr>
                 </thead>
                 <tbody>
-                    {props.todoprop.map((todo, index) => 
+                    {props.todos.map((todo, index) => 
                         <tr key={index}>
                         <td>{todo.date}</td>
                         <td>{todo.desc}</td>
-                        <td><button value={index} onClick={() => props.functionprop(index)} >Delete</button></td>
+                        <td><button value={index} onClick={() => props.deleteTodo(index)} >Delete</button></td>
                         </tr>
                     )}
                 </tbody>
