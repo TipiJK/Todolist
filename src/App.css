@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin-top: 10px;
 }
 
 .App-header {
@@ -15,6 +16,14 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.FlexHorizontal {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content:center;
+  margin: 40px;
 }
 
 table {
